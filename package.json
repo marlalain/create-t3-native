@@ -1,0 +1,10 @@
+{
+  "name": "create-t3-native",
+  "version": "0.1.0",
+  "description": "Quickest way to start a new native app with full stack typesafety",
+  "main": "index.js",
+  "repository": "https://github.com/minsk-dev/create-t3-native.git",
+  "author": "Alex <⚧@❤.gg>",
+  "license": "BSD-3-Clause",
+  "private": false
+}
