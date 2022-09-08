@@ -2,7 +2,11 @@ import {error} from "./utils/log";
 import {cli} from "./cli";
 
 const main = async () => {
-	await cli();
+	const {
+		appName,
+		packages,
+		flags,
+	} = await cli();
 
 	process.exit(0);
 }

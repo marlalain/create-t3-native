@@ -46,6 +46,8 @@ export const cli = async () => {
 	results.packages = await askPackages();
 	if (!results.flags.noGit) results.flags.noGit = !await askGit();
 	if (!results.flags.noInstall) results.flags.noInstall = !await askInstall();
+
+	return results;
 }
 
 const askLanguage = async (): Promise<void> => {
