@@ -5,18 +5,21 @@ import {PackageJson} from "type-fest";
 import {sortPackageJson} from "sort-package-json";
 
 interface PackageGenerator {
-	dependencies: Dependency[];
-	add: (availablePackage: AvailablePackages) => PackageGenerator;
+	add: (availablePackages: AvailablePackages[]) => PackageGenerator;
 	updateJson: (projectDir: string) => void;
 }
 
 export const packageGenerator = (): PackageGenerator => {
 	const dependencies: Dependency[] = [];
 
+	const addSinglePackage = (availablePackage: AvailablePackages) => {
+		dependencies.push(...dependencies.filter((dependency) => dependency.option === availablePackage));
+		return this;
+	}
+
 	return {
-		dependencies,
-		add(availablePackage: AvailablePackages) {
-			dependencies.push(...dependencies.filter((dependency) => dependency.option === availablePackage));
+		add(availablePackages: AvailablePackages[]) {
+			availablePackages.forEach(availablePackage => addSinglePackage(availablePackage));
 
 			return this;
 		},
