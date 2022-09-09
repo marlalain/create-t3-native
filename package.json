@@ -8,11 +8,12 @@
   "license": "BSD-3-Clause",
   "private": false,
   "exports": "./dist/index.js",
+  "type": "module",
   "bin": {
     "create-t3-native": "./dist/index.js"
   },
   "scripts": {
-    "dev": "tsup src/index.ts --format esm --watch --clean --onSuccess \"node dist/index.mjs\"",
+    "dev": "tsup src/index.ts --format esm --watch --clean --onSuccess \"node dist/index.js\"",
     "build": "tsup src/index.ts --format esm --clean --sourcemap --minify --metafile"
   },
   "dependencies": {

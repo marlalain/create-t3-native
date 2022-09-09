@@ -1,10 +1,10 @@
 import {Command} from "commander";
-import {packageJsonValues} from "../utils/package-json";
-import {DEFAULT_APP_NAME} from "../consts";
-import {getPackageManager} from "../utils/package-manager";
+import {packageJsonValues} from "../utils/package-json.js";
+import {DEFAULT_APP_NAME} from "../consts.js";
+import {getPackageManager} from "../utils/package-manager.js";
 import inquirer from "inquirer";
-import {error, info, success} from "../utils/log";
-import {AvailablePackages, availablePackages} from "../installers";
+import {error, info, success} from "../utils/log.js";
+import {AvailablePackages, availablePackages} from "../installers/index.js";
 
 interface CliFlags {
 	noGit: boolean;
@@ -74,7 +74,7 @@ const askPackages = async (): Promise<AvailablePackages[]> => {
 		name: "packages",
 		type: "checkbox",
 		message: "Which packages would you like to use?",
-		choices: availablePackages.map((pkg) => ({
+		choices: availablePackages.map((pkg: AvailablePackages) => ({
 			name: pkg,
 			checked: false,
 		})),

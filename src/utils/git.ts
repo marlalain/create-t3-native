@@ -1,4 +1,4 @@
-import {error, info} from "./log";
+import {error, info} from "./log.js";
 import {exit} from "process";
 import shell from "shelljs";
 

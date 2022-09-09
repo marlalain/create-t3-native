@@ -1,6 +1,6 @@
-import {error} from "./utils/log";
-import {cli} from "./cli";
-import {assertGitIsInstalled} from "./utils/git";
+import {error} from "./utils/log.js";
+import {cli} from "./cli/index.js";
+import {assertGitIsInstalled} from "./utils/git.js";
 
 const main = async () => {
 	assertGitIsInstalled();

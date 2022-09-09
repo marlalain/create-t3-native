@@ -1,4 +1,4 @@
-import {PKG_ROOT} from "../consts";
+import {PKG_ROOT} from "../consts.js";
 import path from "path";
 import fs from "fs-extra";
 import {PackageJson} from "type-fest";
