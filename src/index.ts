@@ -1,7 +1,10 @@
 import {error} from "./utils/log";
 import {cli} from "./cli";
+import {assertGitIsInstalled} from "./utils/git";
 
 const main = async () => {
+	assertGitIsInstalled();
+
 	const {
 		appName,
 		packages,

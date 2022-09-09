@@ -1,12 +1,21 @@
-import {shell} from "./shell";
-import {error} from "./log";
+import {error, info} from "./log";
 import {exit} from "process";
+import shell from "shelljs";
 
-const isGitInstalled = () => !shell.which('git')
+const isInstalled = (app: string) => shell.which(app)?.code === 0;
+
+const tryToInstallGit = () => {
+	if (isInstalled("brew")) {
+		info("Installing git with brew...");
+		shell.exec('brew install git');
+	} else {
+		error('Git is not installed, please install it manually.');
+		exit(1);
+	}
+}
 
 export const assertGitIsInstalled = () => {
-	if (isGitInstalled()) return;
+	if (isInstalled('git')) return;
 
-	error("Git is not installed. Please install git and try again.");
-	exit(127);
+	tryToInstallGit();
 }
